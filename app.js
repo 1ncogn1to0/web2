@@ -1,4 +1,4 @@
-//app.js
+// app.js
 const express = require('express');
 require('dotenv').config(); // Загрузка переменных из .env
 const connectDB = require('./config/db');
@@ -9,9 +9,13 @@ const path = require('path');
 const generateOTP = require('./utils/generateotp');  // Утилита для генерации OTP
 const sendOTP = require('./utils/sendemail');  // Утилита для отправки email
 const OTP = require('./models/otpModel');  // Модель OTP
+const cors = require('cors'); // Импортируем пакет cors
 
 connectDB(); // Подключение к базе данных
 const app = express();
+
+// Настроим CORS для всех доменов
+app.use(cors()); // Разрешаем доступ с любых доменов
 
 app.use(express.json()); // Middleware для обработки JSON
 app.use('/attendance', attendanceRoutes); // Маршруты посещаемости
