@@ -1,7 +1,7 @@
 // controllers/authController.js
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const generateOTP = require('../utils/generateotp');  // Подключаем функцию генерации OTP
 const sendOTP = require('../utils/sendemail');  // Подключаем функцию отправки OTP на email
 
